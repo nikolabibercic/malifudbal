@@ -27,13 +27,22 @@ create table drzave(
 	naziv_drzave varchar(50) character set utf8 not null
 )engine=myisam;
 
+CREATE TABLE turniri(
+	turnir_id int AUTO_INCREMENT PRIMARY KEY,
+	naziv_turnira varchar(100) character set utf8 not null unique,
+    datum_pocetka datetime not null,
+	napomena varchar(300) character set utf8 null
+)engine=myisam;
+
 CREATE TABLE ekipe(
 	ekipa_id int AUTO_INCREMENT PRIMARY KEY,
 	naziv_ekipe varchar(100) character set utf8 not null,
     drzava_id int not null,
     Mesto varchar(100) character set utf8 not null,
     email varchar(100) character set utf8 null unique,
-    FOREIGN KEY (drzava_id) REFERENCES drzave(drzava_id)
+	turnir_id int not null,
+    FOREIGN KEY (drzava_id) REFERENCES drzave(drzava_id),
+    FOREIGN KEY (turnir_id) REFERENCES turniri(turnir_id)
 )engine=myisam;
 
 CREATE TABLE igraci(

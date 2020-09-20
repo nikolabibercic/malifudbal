@@ -6,7 +6,7 @@
                 <li class="nav-item">
                     <a href="" class="nav-link">
                         <?php
-                  
+                            echo $_SESSION['korisnik'][0]->naziv_korisnika;
                         ?>
                     </a>
                 </li> 

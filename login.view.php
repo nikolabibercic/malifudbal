@@ -1,7 +1,15 @@
+<?php
+    if(isset($_SESSION['korisnik'])){
+            header('Location: index.php');
+        }
+?>
+
 <?php require 'bootstrap.php'; ?>
+
 <?php require 'partials/header.php'; ?>
 <?php require 'partials/navbar.php'; ?>
 <br>
+
 <div class="container">
     <div class="row">
         <div class="col-3">

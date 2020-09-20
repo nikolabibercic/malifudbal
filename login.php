@@ -5,6 +5,11 @@
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    $user->loginUser($email,$password);
+    if(isset($_SESSION['korisnik'])){
+        header('Location: index.php');
+    }else{
+        $user->loginUser($email,$password);
+    }
+
 
 ?>

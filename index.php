@@ -7,6 +7,8 @@
 
     //var_dump($_SESSION['korisnik']);
 
+    require 'partials/register.button.php';
+
     require 'partials/footer.php';
     
 ?>

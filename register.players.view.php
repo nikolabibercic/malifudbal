@@ -38,13 +38,13 @@
                     <input type="text" name="igrac6" placeholder="Igrac 6" class="form-control" required><br>
                     <input type="date" name="igrac6DatumRodjenja" placeholder="Igrac 6 Datum rodjenja" class="form-control" required><br>
                     <input type="text" name="igrac7" placeholder="Igrac 7" class="form-control"><br>
-                    <input type="date" name="igrac7DatumRodjenja" placeholder="Igrac 7 Datum rodjenja" class="form-control" required><br>
+                    <input type="date" name="igrac7DatumRodjenja" placeholder="Igrac 7 Datum rodjenja" class="form-control" ><br>
                     <input type="text" name="igrac8" placeholder="Igrac 8" class="form-control"><br>
-                    <input type="date" name="igrac8DatumRodjenja" placeholder="Igrac 8 Datum rodjenja" class="form-control" required><br>
+                    <input type="date" name="igrac8DatumRodjenja" placeholder="Igrac 8 Datum rodjenja" class="form-control" ><br>
                     <input type="text" name="igrac9" placeholder="Igrac 9" class="form-control"><br>
-                    <input type="date" name="igrac9DatumRodjenja" placeholder="Igrac 9 Datum rodjenja" class="form-control" required><br>
+                    <input type="date" name="igrac9DatumRodjenja" placeholder="Igrac 9 Datum rodjenja" class="form-control" ><br>
                     <input type="text" name="igrac10" placeholder="Igrac 10" class="form-control"><br>
-                    <input type="date" name="igrac10DatumRodjenja" placeholder="Igrac 10 Datum rodjenja" class="form-control" required><br>
+                    <input type="date" name="igrac10DatumRodjenja" placeholder="Igrac 10 Datum rodjenja" class="form-control" ><br>
                 </div>
                 <button type="submit" name="prijaviIgrace">Prijavi igrace</button>
             </form>

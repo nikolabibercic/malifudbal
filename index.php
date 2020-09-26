@@ -10,5 +10,6 @@
     require 'partials/register.button.php';
 
     require 'partials/footer.php';
+
     
 ?>

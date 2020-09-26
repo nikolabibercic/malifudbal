@@ -8,7 +8,9 @@
             $sql = "select * from korisnici k where k.email = '{$email}' and k.sifra = '{$password}' ";
             $query = $this->db->prepare($sql);
             $query->execute();
-            $userLogged = $query->fetchAll(PDO::FETCH_OBJ);
+            
+            //Ovde koristim fetch metodu jer vraca samo jedan podatak, ne koristim fetchAll
+            $userLogged = $query->fetch(PDO::FETCH_OBJ);
 
             if($userLogged != null){
 

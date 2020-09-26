@@ -27,11 +27,18 @@ create table drzave(
 	naziv_drzave varchar(50) character set utf8 not null
 )engine=myisam;
 
+create table statusi_turnira(
+	status_turnira_id int AUTO_INCREMENT PRIMARY KEY,
+	status_turnira varchar(50) character set utf8 not null
+)engine=myisam;
+
 CREATE TABLE turniri(
 	turnir_id int AUTO_INCREMENT PRIMARY KEY,
 	naziv_turnira varchar(100) character set utf8 not null unique,
     datum_pocetka datetime not null,
-	napomena varchar(300) character set utf8 null
+	status_turnira_id int not null,
+	napomena varchar(300) character set utf8 null,
+	FOREIGN KEY (status_turnira_id) REFERENCES statusi_turnira(status_turnira_id)
 )engine=myisam;
 
 CREATE TABLE ekipe(
@@ -41,6 +48,7 @@ CREATE TABLE ekipe(
     Mesto varchar(100) character set utf8 not null,
     email varchar(100) character set utf8 null unique,
 	turnir_id int not null,
+	datum_registracije datetime not null,
     FOREIGN KEY (drzava_id) REFERENCES drzave(drzava_id),
     FOREIGN KEY (turnir_id) REFERENCES turniri(turnir_id)
 )engine=myisam;
@@ -63,3 +71,6 @@ insert into drzave values(null,'Hrvatska');
 insert into prava values(null,'Admin');
 insert into korisnici values(null,'Nikola Bibercic','nikola.bibercic@gmail.com','123');
 insert into korisnici_prava values(null,1,1);
+
+insert into statusi_turnira values(null,'Aktivan');
+insert into statusi_turnira values(null,'Neaktivan');

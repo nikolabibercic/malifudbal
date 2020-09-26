@@ -4,7 +4,7 @@
         <ul class="navbar-nav ml-auto">
             <?php if(isset($_SESSION['korisnik'])): ?>        
                 <li class="nav-item">
-                    <a href="" class="nav-link">
+                    <a href="admin.php" class="nav-link">
                         <?php
                             echo $_SESSION['korisnik']->naziv_korisnika;
                         ?>

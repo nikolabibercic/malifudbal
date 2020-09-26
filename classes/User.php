@@ -22,5 +22,13 @@
                 header('Location: login.view.php');
             }       
         }
+
+        public function checkUserAdmin($korisnik_id){
+            $sql = "select * from korisnici_prava k where k.korisnik_id = {$korisnik_id} ";
+            $query = $this->db->prepare($sql);
+            $query->execute();
+            $checkUserAdmin = $query->fetch(PDO::FETCH_OBJ);
+            return $checkUserAdmin;
+        }
     }
 ?>

@@ -4,8 +4,8 @@
 
         public $insertTeamStatus = null;
 
-        public function insertTeam($nazivEkipe,$mesto,$telefon,$email,$nazivTurnira){
-            $sql = "insert into ekipe values(null,'{$nazivEkipe}','{$mesto}','{$telefon}','{$email}','{$nazivTurnira}',current_timestamp())";
+        public function insertTeam($nazivEkipe,$mesto,$telefon,$email,$nazivTurnira,$drzava){
+            $sql = "insert into ekipe values(null,'{$nazivEkipe}',{$drzava},'{$mesto}','{$email}','{$telefon}','{$nazivTurnira}',current_timestamp())";
             $query = $this->db->prepare($sql);
             $query->execute();
 

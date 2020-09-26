@@ -7,8 +7,9 @@
     $telefon = $_POST['telefon'];
     $email = $_POST['email'];
     $nazivTurnira = $_POST['nazivTurnira'];
+    $drzava = $_POST['drzava'];
 
-    $team->insertTeam($nazivEkipe,$mesto,$telefon,$email,$nazivTurnira);
+    $team->insertTeam($nazivEkipe,$mesto,$telefon,$email,$nazivTurnira,$drzava);
 
     if($team->insertTeamStatus){
         header("Location: register.team.view.php?insertTeamStatus={$team->insertTeamStatus}");

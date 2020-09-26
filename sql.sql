@@ -4,7 +4,7 @@ COLLATE utf8_unicode_ci;
 
 create table korisnici(
 	korisnik_id int AUTO_INCREMENT PRIMARY KEY,
-	naziv_korisnika varchar(100) character set utf8 not null unique,
+	naziv_korisnika varchar(100) character set utf8 not null,
     email varchar(100) character set utf8 not null unique,
     sifra varchar(100) character set utf8 not null
 )engine=myisam;
@@ -46,7 +46,8 @@ CREATE TABLE ekipe(
 	naziv_ekipe varchar(100) character set utf8 not null,
     drzava_id int not null,
     Mesto varchar(100) character set utf8 not null,
-    email varchar(100) character set utf8 null unique,
+    email varchar(100) character set utf8 null,
+	telefon varchar(100) character set utf8 null,
 	turnir_id int not null,
 	datum_registracije datetime not null,
     FOREIGN KEY (drzava_id) REFERENCES drzave(drzava_id),
@@ -63,13 +64,14 @@ CREATE TABLE igraci(
 )engine=myisam;
 
 insert into drzave values(null,'Srbija');
-insert into drzave values(null,'Bosna');
+insert into drzave values(null,'Bosna i Hercegovina');
 insert into drzave values(null,'Crna Gora');
 insert into drzave values(null,'Makedonija');
 insert into drzave values(null,'Hrvatska');
 
 insert into prava values(null,'Admin');
-insert into korisnici values(null,'Nikola Bibercic','nikola.bibercic@gmail.com','123');
+insert into korisnici values(null,'Nikola Bibercic','nikolabibercic@gmail.com','123');
+insert into korisnici values(null,'Proba','proba@gmail.com','123');
 insert into korisnici_prava values(null,1,1);
 
 insert into statusi_turnira values(null,'Aktivan');

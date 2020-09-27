@@ -63,6 +63,22 @@ CREATE TABLE igraci(
     FOREIGN KEY (ekipa_id) REFERENCES ekipe(ekipa_id)
 )engine=myisam;
 
+create table statusi_poruka(
+	status_poruke_id int AUTO_INCREMENT PRIMARY KEY,
+	status_poruke varchar(50) character set utf8 not null
+)engine=myisam;
+
+CREATE TABLE poruke(
+	poruka_id int AUTO_INCREMENT PRIMARY KEY,
+	naslov varchar(250) character set utf8 not null,
+    tekst varchar(10000) character set utf8 not null,
+    datum_poruke datetime not null,
+    korisnik_id int not null,
+	status_poruke_id int not null,
+	FOREIGN KEY (korisnik_id) REFERENCES korisnici(korisnik_id),
+	FOREIGN KEY (status_poruke_id) REFERENCES statusi_poruka(status_poruke_id)
+)engine=myisam;
+
 insert into drzave values(null,'Srbija');
 insert into drzave values(null,'Bosna i Hercegovina');
 insert into drzave values(null,'Crna Gora');
@@ -76,3 +92,8 @@ insert into korisnici_prava values(null,1,1);
 
 insert into statusi_turnira values(null,'Aktivan');
 insert into statusi_turnira values(null,'Neaktivan');
+
+insert into statusi_poruka values(null,'Aktivna');
+insert into statusi_poruka values(null,'Neaktivna');
+
+insert into turniri values(null,'Tasmajdan 2020','2020-11-01 00:00:00',1,'Odlican turnir');

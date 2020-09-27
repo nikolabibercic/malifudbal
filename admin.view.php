@@ -1,7 +1,7 @@
 <?php
 
     require 'bootstrap.php';
-
+    //Provera da li korisnik ima admin prava
     $korisnikId = $_SESSION['korisnik']->korisnik_id;
     $checkUserAdmin = $user->checkUserAdmin($korisnikId); //pozivam funkciju koja kontrolise da li user ima admin pravo
     

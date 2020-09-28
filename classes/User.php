@@ -3,7 +3,7 @@
     class User extends QueryBuilder{
 
         public $userLogged = null;
-        public $postInserted = null;
+
 
         public function LoginUser($email,$password){
             $sql = "select * from korisnici k where k.email = '{$email}' and k.sifra = '{$password}' ";
@@ -32,17 +32,7 @@
             return $checkUserAdmin;
         }
 
-        public function insertPost($naslov,$tekst,$korisnikId){
-            $sql = "insert into poruke values(null,'{$naslov}','{$tekst}',current_timestamp(),$korisnikId,1)";
-            $query = $this->db->prepare($sql);
-            $query->execute();
 
-            if($query){
-                $this->postInserted = true;
-            }else{
-                $this->postInserted = false;
-            }
-        }
 
     }
 ?>

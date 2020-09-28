@@ -27,7 +27,10 @@ if(!$checkUserAdmin){
                     <textarea class="form-control" name="tekst" placeholder="Tekst posta" rows="20"></textarea><br>
                 </div>
                 <button type="submit" name="kreirajPost">Kreiraj post</button>
-            </form>
+            </form><br>
+            <?php if(isset($_GET['postInserted']) && $_GET['postInserted']==true): ?>
+                <div class="alert alert-success" role="alert">Uspešno si napravio post</div>
+            <?php endif; ?>
         </div>
 
         <div class="col-3">

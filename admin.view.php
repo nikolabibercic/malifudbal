@@ -20,17 +20,28 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-3">
+            <div class="col-2">
             </div>
 
-            <div class="col-6">
-                <ul class="list-group list-group-horizontal">
+            <div class="col-8">
+                <!-- <ul class="list-group list-group-horizontal">
                     <li class="list-group-item"><a class="btn btn-primary" href="create.tournament.view.php" role="button">Kreiraj turnir</a></li>
+                    <li class="list-group-item"><a class="btn btn-primary" href="" role="button">Status turnira</a></li>
                     <li class="list-group-item"><a class="btn btn-primary" href="create.post.view.php" role="button">Kreiraj post</a></li>
-                </ul>
+                    <li class="list-group-item"><a class="btn btn-primary" href="" role="button">Status posta</a></li>
+                </ul>-->
+                <div class="text-center">
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                        <button type="button" class="btn btn-secondary"><a href="create.tournament.view.php" style="color:white;">Kreiraj turnir</a></button>
+                        <button type="button" class="btn btn-secondary"><a href="" style="color:white;">Status turnira</a></button>
+                        <button type="button" class="btn btn-secondary"><a href="create.post.view.php" style="color:white;">Kreiraj post</a></button>
+                        <button type="button" class="btn btn-secondary"><a href="" style="color:white;">Status posta</a></button>
+                        <button type="button" class="btn btn-secondary"><a href="" style="color:white;">Prava</a></button>
+                    </div>
+                </div>
             </div>
 
-            <div class="col-3">
+            <div class="col-2">
             </div>
         </div>
     </div>

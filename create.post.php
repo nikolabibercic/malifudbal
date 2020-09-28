@@ -12,10 +12,10 @@ if(!$checkUserAdmin){
 $naslov = $_POST['naslov'];
 $tekst = $_POST['tekst'];
 
-$user->insertPost($naslov,$tekst,$korisnikId);
+$post->insertPost($naslov,$tekst,$korisnikId);
 
-if($user->postInserted){
-    header("Location: create.post.view.php?postInserted={$user->postInserted}");
+if($post->postInserted){
+    header("Location: create.post.view.php?postInserted={$post->postInserted}");
 }else{
     header("Location: create.post.view.php");
 }

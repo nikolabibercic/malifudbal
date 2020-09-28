@@ -25,7 +25,7 @@
             <form action="register.team.php" method="POST">
                 <div class="form-group">
                     <input type="text" name="nazivEkipe" placeholder="Naziv ekipe *" class="form-control" required><br>
-                    Država:
+                    Država:<br>
                     <select name="drzava" id="">
                         <?php  $result = $query->select('drzave'); foreach($result as $x):  ?>
                             <option value=<?php echo $x->drzava_id; ?> class="form-control"><?php echo $x->naziv_drzave ?></option>
@@ -34,7 +34,7 @@
                     <input type="text" name="mesto" placeholder="Mesto *" class="form-control" required><br>
                     <input type="text" name="telefon" placeholder="Kontakt telefon *" class="form-control" required><br>
                     <input type="email" name="email" placeholder="Kontakt email" class="form-control"><br>
-                    Turnir:
+                    Turnir:<br>
                     <select name="nazivTurnira" id="">
                         <?php  $result = $tournament->selectActiveTournaments(); foreach($result as $x):  ?>
                             <option value=<?php echo $x->turnir_id; ?> class="form-control"><?php echo $x->naziv_turnira; ?></option>

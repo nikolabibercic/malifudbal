@@ -1,21 +1,25 @@
 
-<nav class="navbar navbar-expand navbar-dark" style="background-color: darkblue;">
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: darkblue;">
         <a class="navbar-brand" href="index.php">Turnir u malom fudbalu</a>
-        <ul class="navbar-nav ml-auto">
-            <?php if(isset($_SESSION['korisnik'])): ?>        
-                <li class="nav-item">
-                    <a href="admin.php" class="nav-link" style="color:white;">
-                        <?php
-                            echo $_SESSION['korisnik']->naziv_korisnika;
-                        ?>
-                    </a>
-                </li> 
-                <li class="nav-item"><a href="logout.php" class="nav-link" style="color:white;">Izloguj se</a></li>
-            <?php else: ?>
-                <li class="nav-item"><a href="login.view.php" class="nav-link" style="color:white;">Uloguj se</a></li>    
-            <?php endif; ?>
-            <li class="nav-item"><a href="contact.view.php" class="nav-link" style="color:white;">Kontakt</a></li>
-        </ul>
-
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a href="post.view.php" class="nav-link" style="color:white;">Vesti i rezultati</a></li>
+                <li class="nav-item"><a href="contact.view.php" class="nav-link" style="color:white;">Kontakt</a></li>
+                <?php if(isset($_SESSION['korisnik'])): ?>        
+                    <li class="nav-item">
+                        <a href="admin.php" class="nav-link" style="color:white;">
+                            <?php
+                                echo $_SESSION['korisnik']->naziv_korisnika;
+                            ?>
+                        </a>
+                    </li>
+                    <li class="nav-item"><a href="logout.php" class="nav-link" style="color:white;">Izloguj se</a></li>
+                <?php else: ?>
+                    <li class="nav-item"><a href="login.register.view.php" class="nav-link" style="color:white;">Logovanje/Registracija</a></li>    
+                <?php endif; ?>
+            </ul>
+        </div>           
 </nav>
-

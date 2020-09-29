@@ -3,7 +3,7 @@
     class User extends QueryBuilder{
 
         public $userLogged = null;
-
+        public $registerUserStatus = null;
 
         public function LoginUser($email,$password){
             $sql = "select * from korisnici k where k.email = '{$email}' and k.sifra = '{$password}' ";
@@ -20,7 +20,7 @@
 
                 header('Location: index.php');
             }else{
-                header('Location: login.view.php');
+                header('Location: login.register.view.php');
             }       
         }
 
@@ -32,7 +32,19 @@
             return $checkUserAdmin;
         }
 
+        public function registerUser($nazivKorisnika,$email,$password){
+            $sql = "insert into korisnici values(null,'{$nazivKorisnika}','{$email}','{$password}')";
+            $query = $this->db->prepare($sql);
+            $query->execute();
+            $last_id = $this->db->lastInsertId();//ako su podaci insertovani, uzima ID
 
-
+            if($last_id){
+                $this->registerUserStatus = true;
+                header('Location: login.register.view.php');
+            }else{
+                $this->registerUserStatus = false;
+                header('Location: login.register.view.php');
+            }
+        }
     }
 ?>

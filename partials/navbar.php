@@ -10,7 +10,7 @@
                 <li class="nav-item"><a href="contact.view.php" class="nav-link" style="color:white;">Kontakt</a></li>
                 <?php if(isset($_SESSION['korisnik'])): ?>        
                     <li class="nav-item">
-                        <a href="admin.php" class="nav-link" style="color:white;">
+                        <a href="admin.view.php" class="nav-link" style="color:white;">
                             <?php
                                 echo $_SESSION['korisnik']->naziv_korisnika;
                             ?>

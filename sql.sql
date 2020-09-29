@@ -86,6 +86,8 @@ insert into drzave values(null,'Makedonija');
 insert into drzave values(null,'Hrvatska');
 
 insert into prava values(null,'Admin');
+insert into prava values(null,'Bloger');
+
 insert into korisnici values(null,'Nikola Bibercic','nikolabibercic@gmail.com','123');
 insert into korisnici values(null,'Proba','proba@gmail.com','123');
 insert into korisnici_prava values(null,1,1);

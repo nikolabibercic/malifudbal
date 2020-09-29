@@ -15,11 +15,8 @@ $napomena = $_POST['napomena'];
 
 $tournament->insertTournament($naziv,$datum,$napomena);
 
-if($tournament->tournamentInserted){
-    header("Location: create.tournament.view.php?tournamentInserted={$tournament->tournamentInserted}");
-}else{
-    header("Location: create.tournament.view.php");
-}
+header("Location: create.tournament.view.php?tournamentInserted={$tournament->tournamentInserted}");
+
 
 ?>
     

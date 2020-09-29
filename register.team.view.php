@@ -48,6 +48,10 @@
             <?php if(isset($_GET['insertTeamStatus']) && $_GET['insertTeamStatus']==true): ?>
                 <div class="alert alert-success" role="alert">Uspešno si registrovao ekipu!</div>
             <?php endif; ?>
+
+            <?php if(isset($_GET['insertTeamStatus']) && $_GET['insertTeamStatus']==false): ?>
+                <div class="alert alert-danger" role="alert">Registracija nije uspela!</div>
+            <?php endif; ?>
             
             <!-- Ako vec postoji ekipa sa istim nazivom izlazi poruka da se promeni naziv ekipe -->
             <?php if(isset($_GET['duplicateTeamStatus']) && $_GET['duplicateTeamStatus']==true): ?>

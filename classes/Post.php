@@ -17,10 +17,10 @@
         public function insertPost($naslov,$tekst,$korisnikId){
             $sql = "insert into poruke values(null,'{$naslov}','{$tekst}',current_timestamp(),$korisnikId,1)";
             $query = $this->db->prepare($sql);
-            $query->execute();
-            $last_id = $this->db->lastInsertId();//ako su podaci insertovani, uzima ID
+            $provera = $query->execute();
+            //$last_id = $this->db->lastInsertId();//ako su podaci insertovani, uzima ID
 
-            if($last_id){
+            if($provera){
                 $this->postInserted = true;
             }else{
                 $this->postInserted = false;

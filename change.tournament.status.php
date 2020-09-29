@@ -9,12 +9,11 @@ if(!$checkUserAdmin){
     header('Location: index.php');
 }
 
-$naslov = $_POST['naslov'];
-$tekst = $_POST['tekst'];
+$turnirId = $_POST['turnirId'];
+$statusTurnira = $_POST['statusTurnira'];
 
-$post->insertPost($naslov,$tekst,$korisnikId);
+$tournament->updateTournamentStatus($turnirId,$statusTurnira);
 
-header("Location: create.post.view.php?postInserted={$post->postInserted}");
+header("Location: change.tournament.status.view.php?statusChanged={$tournament->statusChanged}");
 
 ?>
-    

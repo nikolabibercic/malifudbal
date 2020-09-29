@@ -17,11 +17,8 @@
     }else{
         $team->insertTeam($nazivEkipe,$mesto,$telefon,$email,$nazivTurnira,$drzava);
 
-        if($team->insertTeamStatus){
-            header("Location: register.team.view.php?insertTeamStatus={$team->insertTeamStatus}");
-        }else{
-            header("Location: register.team.view.php");
-        }
+        header("Location: register.team.view.php?insertTeamStatus={$team->insertTeamStatus}");
     }
+
 
 ?>

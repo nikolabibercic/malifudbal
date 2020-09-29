@@ -33,7 +33,7 @@
                 <div class="text-center">
                     <div class="btn-group" role="group" aria-label="Basic example">
                         <button type="button" class="btn btn-secondary"><a href="create.tournament.view.php" style="color:white;">Kreiraj turnir</a></button>
-                        <button type="button" class="btn btn-secondary"><a href="" style="color:white;">Status turnira</a></button>
+                        <button type="button" class="btn btn-secondary"><a href="change.tournament.status.view.php" style="color:white;">Status turnira</a></button>
                         <button type="button" class="btn btn-secondary"><a href="create.post.view.php" style="color:white;">Kreiraj post</a></button>
                         <button type="button" class="btn btn-secondary"><a href="" style="color:white;">Status posta</a></button>
                         <button type="button" class="btn btn-secondary"><a href="" style="color:white;">Prava</a></button>

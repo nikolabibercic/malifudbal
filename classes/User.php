@@ -40,10 +40,10 @@
 
             if($last_id){
                 $this->registerUserStatus = true;
-                header('Location: login.register.view.php');
+                //header('Location: login.register.view.php'); //ovo je visak koda 
             }else{
                 $this->registerUserStatus = false;
-                header('Location: login.register.view.php');
+                //header('Location: login.register.view.php'); //ovo je visak koda
             }
         }
     }

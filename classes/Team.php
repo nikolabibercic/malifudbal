@@ -8,10 +8,10 @@
         public function insertTeam($nazivEkipe,$mesto,$telefon,$email,$nazivTurnira,$drzava){
             $sql = "insert into ekipe values(null,'{$nazivEkipe}',{$drzava},'{$mesto}','{$email}','{$telefon}','{$nazivTurnira}',current_timestamp())";
             $query = $this->db->prepare($sql);
-            $query->execute();
-            $last_id = $this->db->lastInsertId();//ako su podaci insertovani, uzima ID
+            $provera = $query->execute();
+            //$last_id = $this->db->lastInsertId();//ako su podaci insertovani, uzima ID
 
-            if($last_id){
+            if($provera){
                 $this->insertTeamStatus = true;
             }else{
                 $this->insertTeamStatus = false;

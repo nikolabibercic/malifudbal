@@ -31,6 +31,10 @@ if(!$checkUserAdmin){
             <?php if(isset($_GET['postInserted']) && $_GET['postInserted']==true): ?>
                 <div class="alert alert-success" role="alert">Uspešno si napravio post</div>
             <?php endif; ?>
+
+            <?php if(isset($_GET['postInserted']) && $_GET['postInserted']==false): ?>
+                <div class="alert alert-danger" role="alert">Kreiranje posta nije uspelo!</div>
+            <?php endif; ?>
         </div>
 
         <div class="col-3">

@@ -32,6 +32,10 @@ if(!$checkUserAdmin){
             <?php if(isset($_GET['tournamentInserted']) && $_GET['tournamentInserted']==true): ?>
                 <div class="alert alert-success" role="alert">Uspešno si napravio turnir</div>
             <?php endif; ?>
+
+            <?php if(isset($_GET['tournamentInserted']) && $_GET['tournamentInserted']==false): ?>
+                <div class="alert alert-danger" role="alert">Kreiranje turnira nije uspelo!</div>
+            <?php endif; ?>
         </div>
 
         <div class="col-3">

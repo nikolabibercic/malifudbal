@@ -5,11 +5,8 @@
     require 'partials/navbar.php';
     require 'partials/jumbotron.php';
 
-    //var_dump($_SESSION['korisnik']);
-
     require 'partials/register.team.button.php';
 
     require 'partials/footer.php';
 
-    
 ?>

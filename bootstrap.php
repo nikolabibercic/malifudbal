@@ -7,6 +7,7 @@
     require 'classes/Team.php';
     require 'classes/Tournament.php';
     require 'classes/Post.php';
+    require 'classes/Role.php';
 
     $db = new Connection();
     $query = new QueryBuilder($db->connect());
@@ -14,4 +15,5 @@
     $team = new Team($db->connect());
     $tournament = new Tournament($db->connect());
     $post = new Post($db->connect());
+    $role = new Role($db->connect());
 ?>

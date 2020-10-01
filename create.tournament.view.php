@@ -1,15 +1,17 @@
-
 <?php
 
 require 'bootstrap.php';
 //Provera da li korisnik ima admin prava
 $korisnikId = $_SESSION['korisnik']->korisnik_id;
-$checkUserAdmin = $user->checkUserAdmin($korisnikId); //pozivam funkciju koja kontrolise da li user ima admin pravo
+$checkUserAdmin = $user->checkUserAdmin($korisnikId); //pozivam funkciju koja izbacuje sva prava korisnika
 
-if(!$checkUserAdmin){
-    header('Location: index.php');
-}
+//Provera da li korisnik ima admin prava
+
+$check = false;
+
+foreach($checkUserAdmin as $x):
 ?>
+    <?php if($x->pravo_id == 1): ?>
     
 <?php  require 'partials/header.php';?>
 <?php require 'partials/navbar.php';?>
@@ -43,4 +45,19 @@ if(!$checkUserAdmin){
     </div>
 </div>
 
-<?php   require 'partials/footer.php';?>
+<?php   
+            require 'partials/footer.php';
+            $check = true; break; 
+
+            else: 
+
+            $check == false; 
+
+            endif; 
+
+            endforeach; 
+
+            if(!$check){
+                header('Location: index.php'); 
+            }
+        ?>

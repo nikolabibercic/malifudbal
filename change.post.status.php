@@ -12,12 +12,12 @@ $check = false;
 foreach($checkUserAdmin as $x):
     if($x->pravo_id == 1 or $x->pravo_id == 2): 
 
-$naslov = $_POST['naslov'];
-$tekst = $_POST['tekst'];
+$porukaId = $_POST['porukaId'];
+$statusPoruke = $_POST['statusPoruke'];
 
-$post->insertPost($naslov,$tekst,$korisnikId);
+$post->updatePostStatus($porukaId,$statusPoruke);
 
-header("Location: create.post.view.php?postInserted={$post->postInserted}");
+header("Location: change.post.status.view.php?statusChanged={$post->statusChanged}");
 
 $check = true; break; 
 
@@ -33,4 +33,3 @@ if(!$check){
     header('Location: index.php'); 
 }
 ?>
-    

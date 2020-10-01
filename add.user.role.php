@@ -12,14 +12,12 @@ $check = false;
 foreach($checkUserAdmin as $x):
     if($x->pravo_id == 1): 
 
-$naziv = $_POST['naziv'];
-$datum = $_POST['datum'];
-$napomena = $_POST['napomena'];
+$korisnikId = $_POST['korisnikId'];
+$pravoId = $_POST['pravoId'];
 
-$tournament->insertTournament($naziv,$datum,$napomena);
+$role->insertRole($korisnikId,$pravoId);
 
-header("Location: create.tournament.view.php?tournamentInserted={$tournament->tournamentInserted}");
-
+header("Location: add.user.role.view.php?roleInsertChanged={$role->roleInsertChanged}");
 
 $check = true; break; 
 
@@ -35,4 +33,3 @@ if(!$check){
     header('Location: index.php'); 
 }
 ?>
-    

@@ -1,14 +1,18 @@
 <?php
 
-    require 'bootstrap.php';
-    //Provera da li korisnik ima admin prava
-    $korisnikId = $_SESSION['korisnik']->korisnik_id;
-    $checkUserAdmin = $user->checkUserAdmin($korisnikId); //pozivam funkciju koja kontrolise da li user ima admin pravo
-    
-    if(!$checkUserAdmin){
-        header('Location: index.php');
-    }
+require 'bootstrap.php';
+//Provera da li korisnik ima admin ili bloger prava
+$korisnikId = $_SESSION['korisnik']->korisnik_id;
+$checkUserAdmin = $user->checkUserAdmin($korisnikId); //pozivam funkciju koja izbacuje sva prava korisnika
+
+//Provera da li korisnik ima admin ili bloger prava
+
+$check = false;
+
+foreach($checkUserAdmin as $x):
 ?>
+    <?php if($x->pravo_id == 1 or $x->pravo_id == 2): ?>
+
     <?php require 'partials/header.php'; ?>
     <?php require 'partials/navbar.php'; ?>
 
@@ -24,33 +28,37 @@
             </div>
 
             <div class="col-8">
-                <!-- <ul class="list-group list-group-horizontal">
-                    <li class="list-group-item"><a class="btn btn-primary" href="create.tournament.view.php" role="button">Kreiraj turnir</a></li>
-                    <li class="list-group-item"><a class="btn btn-primary" href="" role="button">Status turnira</a></li>
-                    <li class="list-group-item"><a class="btn btn-primary" href="create.post.view.php" role="button">Kreiraj post</a></li>
-                    <li class="list-group-item"><a class="btn btn-primary" href="" role="button">Status posta</a></li>
-                </ul>-->
                 <div class="text-center">
                     <div class="btn-group" role="group" aria-label="Basic example">
-                        <?php if($checkUserAdmin->pravo_id == 1): ?>
+                        <?php foreach($checkUserAdmin as $x):  if($x->pravo_id == 1): ?>
                             <button type="button" class="btn btn-secondary"><a href="create.tournament.view.php" style="color:white;">Kreiraj turnir</a></button>             
-                        <?php endif; ?>
+                        <?php break; endif; ?>
+                        <?php endforeach; ?>
 
-                        <?php if($checkUserAdmin->pravo_id == 1): ?>
+                        <?php foreach($checkUserAdmin as $x): if($x->pravo_id == 1): ?>
                             <button type="button" class="btn btn-secondary"><a href="change.tournament.status.view.php" style="color:white;">Status turnira</a></button>
-                        <?php endif; ?>
+                        <?php break; endif; ?>
+                        <?php endforeach; ?>
 
-                        <?php if($checkUserAdmin->pravo_id == 1 or $checkUserAdmin->pravo_id == 2): ?>
+                        <?php foreach($checkUserAdmin as $x):  if($x->pravo_id == 1 or $x->pravo_id == 2): ?>
                             <button type="button" class="btn btn-secondary"><a href="create.post.view.php" style="color:white;">Kreiraj post</a></button>
-                        <?php endif; ?>
+                        <?php break; endif; ?>
+                        <?php endforeach; ?>
 
-                        <?php if($checkUserAdmin->pravo_id == 1 or $checkUserAdmin->pravo_id == 2): ?>
-                            <button type="button" class="btn btn-secondary"><a href="" style="color:white;">Status posta</a></button>
-                        <?php endif; ?>
+                        <?php foreach($checkUserAdmin as $x):  if($x->pravo_id == 1 or $x->pravo_id == 2): ?>
+                            <button type="button" class="btn btn-secondary"><a href="change.post.status.view.php" style="color:white;">Status posta</a></button>
+                        <?php break; endif; ?>
+                        <?php endforeach; ?>
 
-                        <?php if($checkUserAdmin->pravo_id == 1): ?>
-                            <button type="button" class="btn btn-secondary"><a href="" style="color:white;">Prava</a></button>
-                        <?php endif; ?>
+                        <?php foreach($checkUserAdmin as $x):  if($x->pravo_id == 1): ?>
+                            <button type="button" class="btn btn-secondary"><a href="change.user.role.view.php" style="color:white;">Promena prava</a></button>
+                        <?php break; endif; ?>
+                        <?php endforeach; ?>
+
+                        <?php foreach($checkUserAdmin as $x):  if($x->pravo_id == 1): ?>
+                            <button type="button" class="btn btn-secondary"><a href="add.user.role.view.php" style="color:white;">Dodela prava</a></button>
+                        <?php break; endif; ?>
+                        <?php endforeach; ?>
                     </div>
                 </div>
             </div>
@@ -60,6 +68,21 @@
         </div>
     </div>
 
-    <?php require 'partials/footer.php'; ?>
+<?php   
+            require 'partials/footer.php';
+            $check = true; break; 
+
+            else: 
+
+            $check == false; 
+
+            endif; 
+
+            endforeach; 
+
+            if(!$check){
+                header('Location: index.php'); 
+            }
+        ?>
 
 

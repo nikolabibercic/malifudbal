@@ -1,17 +1,17 @@
 <?php
 
 require 'bootstrap.php';
-//Provera da li korisnik ima admin prava
+//Provera da li korisnik ima admin ili bloger prava
 $korisnikId = $_SESSION['korisnik']->korisnik_id;
 $checkUserAdmin = $user->checkUserAdmin($korisnikId); //pozivam funkciju koja izbacuje sva prava korisnika
 
-//Provera da li korisnik ima admin prava
+//Provera da li korisnik ima admin ili bloger prava
 
 $check = false;
 
 foreach($checkUserAdmin as $x):
 ?>
-    <?php if($x->pravo_id == 1): ?>
+    <?php if($x->pravo_id == 1 or $x->pravo_id == 2): ?>
     
 <?php  require 'partials/header.php';?>
 <?php require 'partials/navbar.php';?>
@@ -22,20 +22,20 @@ foreach($checkUserAdmin as $x):
         </div>
 
         <div class="col-6">
-            <h1>Promena statusa turnira:</h1><br>
-            <form action="change.tournament.status.php" method="POST">
+            <h1>Promena statusa posta:</h1><br>
+            <form action="change.post.status.php" method="POST">
                 <div class="form-group">
-                    Lista turnira i trenutni statusi:<br>
-                    <select name="turnirId" id="">
-                        <?php  $result = $tournament->selectAllTournaments(); foreach($result as $x):  ?>
-                            <option value=<?php echo $x->turnir_id; ?> class="form-control"><?php echo $x->naziv_turnira.' - '.$x->status_turnira; ?></option>
+                    Lista postova i trenutni statusi:<br>
+                    <select name="porukaId" id="">
+                        <?php  $result = $post->selectAllPosts(); foreach($result as $x):  ?>
+                            <option value=<?php echo $x->poruka_id; ?> class="form-control"><?php echo $x->naslov.' - '.$x->status_poruke; ?></option>
                         <?php endforeach; ?>
                     </select><br><br>
 
                     Novi status:<br>
-                    <select name="statusTurnira" id="">
-                        <?php  $result = $tournament->selectTournamentStatuses(); foreach($result as $x):  ?>
-                            <option value=<?php echo $x->status_turnira_id; ?> class="form-control"><?php echo $x->status_turnira; ?></option>
+                    <select name="statusPoruke" id="">
+                        <?php  $result = $post->selectPostStatuses(); foreach($result as $x):  ?>
+                            <option value=<?php echo $x->status_poruke_id; ?> class="form-control"><?php echo $x->status_poruke; ?></option>
                         <?php endforeach; ?>
                     </select><br><br>
                 </div>

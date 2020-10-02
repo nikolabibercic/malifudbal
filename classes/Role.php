@@ -4,6 +4,7 @@
 
         public $roleUpdateChanged = null;
         public $roleInsertChanged = null;
+        public $roleDeleteChanged = null;
 
         //Ovde prikazujem sve korisnike koji imaju dodeljeno neko pravo
         public function selectUserRole(){
@@ -54,6 +55,19 @@
                 $this->roleUpdateChanged = true;
             }else{
                 $this->roleUpdateChanged = false;
+            }
+        }
+
+        public function deleteRole($korisnikPravoId){
+
+            $sql = "delete from korisnici_prava where korisnik_pravo_id = {$korisnikPravoId} ";
+            $query = $this->db->prepare($sql);
+            $provera = $query->execute();
+
+            if($provera){
+                $this->roleDeleteChanged = true;
+            }else{
+                $this->roleDeleteChanged = false;
             }
         }
 

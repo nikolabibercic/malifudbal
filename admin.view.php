@@ -26,43 +26,58 @@ foreach($checkUserAdmin as $x):
         <div class="row">
             <div class="col-2">
             </div>
-
             <div class="col-8">
                 <div class="text-center">
-                    <div class="btn-group" role="group" aria-label="Basic example">
+
                         <?php foreach($checkUserAdmin as $x):  if($x->pravo_id == 1): ?>
                             <button type="button" class="btn btn-secondary"><a href="create.tournament.view.php" style="color:white;">Kreiraj turnir</a></button>             
-                        <?php break; endif; ?>
-                        <?php endforeach; ?>
 
-                        <?php foreach($checkUserAdmin as $x): if($x->pravo_id == 1): ?>
                             <button type="button" class="btn btn-secondary"><a href="change.tournament.status.view.php" style="color:white;">Status turnira</a></button>
                         <?php break; endif; ?>
                         <?php endforeach; ?>
 
-                        <?php foreach($checkUserAdmin as $x):  if($x->pravo_id == 1 or $x->pravo_id == 2): ?>
-                            <button type="button" class="btn btn-secondary"><a href="create.post.view.php" style="color:white;">Kreiraj post</a></button>
-                        <?php break; endif; ?>
-                        <?php endforeach; ?>
+                </div>
+            </div>
+            <div class="col-2">
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-2">
+            </div>
+            <div class="col-8">
+                <div class="text-center">
 
                         <?php foreach($checkUserAdmin as $x):  if($x->pravo_id == 1 or $x->pravo_id == 2): ?>
+                            <button type="button" class="btn btn-secondary"><a href="create.post.view.php" style="color:white;">Kreiraj post</a></button>
+
                             <button type="button" class="btn btn-secondary"><a href="change.post.status.view.php" style="color:white;">Status posta</a></button>
                         <?php break; endif; ?>
                         <?php endforeach; ?>
 
-                        <?php foreach($checkUserAdmin as $x):  if($x->pravo_id == 1): ?>
-                            <button type="button" class="btn btn-secondary"><a href="change.user.role.view.php" style="color:white;">Promena prava</a></button>
-                        <?php break; endif; ?>
-                        <?php endforeach; ?>
-
-                        <?php foreach($checkUserAdmin as $x):  if($x->pravo_id == 1): ?>
-                            <button type="button" class="btn btn-secondary"><a href="add.user.role.view.php" style="color:white;">Dodela prava</a></button>
-                        <?php break; endif; ?>
-                        <?php endforeach; ?>
-                    </div>
                 </div>
             </div>
+            <div class="col-2">
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-2">
+            </div>
+            <div class="col-8">
+                <div class="text-center">
 
+                        <?php foreach($checkUserAdmin as $x):  if($x->pravo_id == 1): ?>
+                            <button type="button" class="btn btn-secondary"><a href="change.user.role.view.php" style="color:white;">Promena prava</a></button>
+
+                            <button type="button" class="btn btn-secondary"><a href="add.user.role.view.php" style="color:white;">Dodela prava</a></button>
+
+                            <button type="button" class="btn btn-secondary"><a href="delete.user.role.view.php" style="color:white;">Brisanje prava</a></button>
+                        <?php break; endif; ?>
+                        <?php endforeach; ?>
+
+                </div>
+            </div>
             <div class="col-2">
             </div>
         </div>

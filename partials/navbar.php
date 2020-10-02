@@ -18,7 +18,7 @@
                     </li>
                     <li class="nav-item"><a href="logout.php" class="nav-link" style="color:white;">Izloguj se</a></li>
                 <?php else: ?>
-                    <li class="nav-item"><a href="login.register.view.php" class="nav-link" style="color:white;">Logovanje/Registracija</a></li>    
+                    <li class="nav-item"><a href="login.register.view.php" class="nav-link" style="color:white;"><img src="images/login-icon.png" height="30px" width="30px"></img></a></li>    
                 <?php endif; ?>
             </ul>
         </div>           

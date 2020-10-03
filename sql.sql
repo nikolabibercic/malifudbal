@@ -22,9 +22,16 @@ CREATE TABLE korisnici_prava(
 	FOREIGN KEY (pravo_id) REFERENCES prava(pravo_id)
 )engine=myisam;
 
+create table statusi_drzava(
+	status_drzave_id int AUTO_INCREMENT PRIMARY KEY,
+	status_drzave varchar(50) character set utf8 not null
+)engine=myisam;
+
 create table drzave(
 	drzava_id int AUTO_INCREMENT PRIMARY KEY,
-	naziv_drzave varchar(50) character set utf8 not null
+	naziv_drzave varchar(50) character set utf8 not null unique,
+	status_drzave_id int not null,
+	FOREIGN KEY (status_drzave_id) REFERENCES statusi_drzava(status_drzave_id)
 )engine=myisam;
 
 create table statusi_turnira(
@@ -79,11 +86,11 @@ CREATE TABLE poruke(
 	FOREIGN KEY (status_poruke_id) REFERENCES statusi_poruka(status_poruke_id)
 )engine=myisam;
 
-insert into drzave values(null,'Srbija');
-insert into drzave values(null,'Bosna i Hercegovina');
-insert into drzave values(null,'Crna Gora');
-insert into drzave values(null,'Makedonija');
-insert into drzave values(null,'Hrvatska');
+insert into drzave values(null,'Srbija',1);
+insert into drzave values(null,'Bosna i Hercegovina',1);
+insert into drzave values(null,'Crna Gora',1);
+insert into drzave values(null,'Makedonija',1);
+insert into drzave values(null,'Hrvatska',1);
 
 insert into prava values(null,'Admin');
 insert into prava values(null,'Bloger');
@@ -97,5 +104,8 @@ insert into statusi_turnira values(null,'Neaktivan');
 
 insert into statusi_poruka values(null,'Aktivna');
 insert into statusi_poruka values(null,'Neaktivna');
+
+insert into statusi_drzava values(null,'Aktivna');
+insert into statusi_drzava values(null,'Neaktivna');
 
 insert into turniri values(null,'Tasmajdan 2020','2020-11-01 00:00:00',1,'Odlican turnir');

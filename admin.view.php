@@ -32,7 +32,7 @@ foreach($checkUserAdmin as $x):
                         <?php foreach($checkUserAdmin as $x):  if($x->pravo_id == 1): ?>
                             <button type="button" class="btn btn-secondary"><a href="create.tournament.view.php" style="color:white;">Kreiraj turnir</a></button>             
 
-                            <button type="button" class="btn btn-secondary"><a href="change.tournament.status.view.php" style="color:white;">Status turnira</a></button>
+                            <button type="button" class="btn btn-secondary"><a href="change.tournament.status.view.php" style="color:white;">Status turnira</a></button><br><br>
                         <?php break; endif; ?>
                         <?php endforeach; ?>
 
@@ -41,7 +41,7 @@ foreach($checkUserAdmin as $x):
             <div class="col-2">
             </div>
         </div>
-        <br>
+        
         <div class="row">
             <div class="col-2">
             </div>
@@ -51,7 +51,7 @@ foreach($checkUserAdmin as $x):
                         <?php foreach($checkUserAdmin as $x):  if($x->pravo_id == 1 or $x->pravo_id == 2): ?>
                             <button type="button" class="btn btn-secondary"><a href="create.post.view.php" style="color:white;">Kreiraj post</a></button>
 
-                            <button type="button" class="btn btn-secondary"><a href="change.post.status.view.php" style="color:white;">Status posta</a></button>
+                            <button type="button" class="btn btn-secondary"><a href="change.post.status.view.php" style="color:white;">Status posta</a></button><br><br>
                         <?php break; endif; ?>
                         <?php endforeach; ?>
 
@@ -60,7 +60,7 @@ foreach($checkUserAdmin as $x):
             <div class="col-2">
             </div>
         </div>
-        <br>
+
         <div class="row">
             <div class="col-2">
             </div>
@@ -72,7 +72,7 @@ foreach($checkUserAdmin as $x):
 
                             <button type="button" class="btn btn-secondary"><a href="add.user.role.view.php" style="color:white;">Dodela prava</a></button>
 
-                            <button type="button" class="btn btn-secondary"><a href="delete.user.role.view.php" style="color:white;">Brisanje prava</a></button>
+                            <button type="button" class="btn btn-secondary"><a href="delete.user.role.view.php" style="color:white;">Brisanje prava</a></button><br><br>
                         <?php break; endif; ?>
                         <?php endforeach; ?>
 
@@ -81,7 +81,7 @@ foreach($checkUserAdmin as $x):
             <div class="col-2">
             </div>
         </div>
-        <br>
+
         <div class="row">
             <div class="col-2">
             </div>
@@ -89,7 +89,7 @@ foreach($checkUserAdmin as $x):
                 <div class="text-center">
 
                         <?php foreach($checkUserAdmin as $x):  if($x->pravo_id == 1): ?>
-                            <button type="button" class="btn btn-secondary"><a href="delete.user.view.php" style="color:white;">Brisanje korisnika</a></button>             
+                            <button type="button" class="btn btn-secondary"><a href="delete.user.view.php" style="color:white;">Brisanje korisnika</a></button><br><br>           
 
                         <?php break; endif; ?>
                         <?php endforeach; ?>
@@ -99,7 +99,7 @@ foreach($checkUserAdmin as $x):
             <div class="col-2">
             </div>
         </div>
-        <br>
+
         <div class="row">
             <div class="col-2">
             </div>
@@ -107,8 +107,27 @@ foreach($checkUserAdmin as $x):
                 <div class="text-center">
 
                         <?php foreach($checkUserAdmin as $x):  if($x->pravo_id == 1): ?>
-                            <button type="button" class="btn btn-secondary"><a href="delete.team.view.php" style="color:white;">Brisanje ekipe</a></button>             
+                            <button type="button" class="btn btn-secondary"><a href="delete.team.view.php" style="color:white;">Brisanje ekipe</a></button><br><br>             
 
+                        <?php break; endif; ?>
+                        <?php endforeach; ?>
+
+                </div>
+            </div>
+            <div class="col-2">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-2">
+            </div>
+            <div class="col-8">
+                <div class="text-center">
+
+                        <?php foreach($checkUserAdmin as $x):  if($x->pravo_id == 1 or $x->pravo_id == 2): ?>
+                            <button type="button" class="btn btn-secondary"><a href="add.country.view.php" style="color:white;">Dodaj državu</a></button>
+
+                            <button type="button" class="btn btn-secondary"><a href="change.country.status.view.php" style="color:white;">Status države</a></button><br><br>
                         <?php break; endif; ?>
                         <?php endforeach; ?>
 

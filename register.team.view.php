@@ -27,7 +27,7 @@
                     <input type="text" name="nazivEkipe" placeholder="Naziv ekipe *" class="form-control" required><br>
                     Država:<br>
                     <select name="drzava" id="">
-                        <?php  $result = $query->select('drzave'); foreach($result as $x):  ?>
+                        <?php  $result = $country->selectActiveCountries(); foreach($result as $x):  ?>
                             <option value=<?php echo $x->drzava_id; ?> class="form-control"><?php echo $x->naziv_drzave ?></option>
                         <?php endforeach; ?>
                     </select><br><br>

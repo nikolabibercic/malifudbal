@@ -4,6 +4,7 @@
 
         public $insertTeamStatus = null;
         public $duplicateTeamStatus = null;
+        public $teamDeleteChanged = null;
 
         public function insertTeam($nazivEkipe,$mesto,$telefon,$email,$nazivTurnira,$drzava){
             $sql = "insert into ekipe values(null,'{$nazivEkipe}',{$drzava},'{$mesto}','{$email}','{$telefon}','{$nazivTurnira}',current_timestamp())";
@@ -37,6 +38,36 @@
             }
 
             return $duplicateTeam;
+        }
+
+        public function selectAllTeams(){
+            $sql = "select e.ekipa_id, e.naziv_ekipe, t.naziv_turnira, t.datum_pocetka
+                    from ekipe e
+                    inner join turniri t on t.turnir_id = e.turnir_id
+                    order by t.datum_pocetka desc, e.naziv_ekipe asc
+                     ";
+            $query = $this->db->prepare($sql);
+            $query->execute();
+            $result = $query->fetchAll(PDO::FETCH_OBJ);
+            
+            return $result;
+        }
+
+        public function deleteTeam($ekipaId){
+            //kada se brise ekipa brisu se i svi igraci te ekipe. 
+            //Na sajtu jos nije implementirana stranica za igrace, postoji samo tabela u bazi
+            $sql = "
+                delete from igraci where ekipa_id = {$ekipaId};
+                delete from ekipe where ekipa_id = {$ekipaId};
+            ";
+            $query = $this->db->prepare($sql);
+            $provera = $query->execute();
+
+            if($provera){
+                $this->teamDeleteChanged = true;
+            }else{
+                $this->teamDeleteChanged = false;
+            }
         }
     }
 

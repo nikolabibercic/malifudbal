@@ -81,6 +81,42 @@ foreach($checkUserAdmin as $x):
             <div class="col-2">
             </div>
         </div>
+        <br>
+        <div class="row">
+            <div class="col-2">
+            </div>
+            <div class="col-8">
+                <div class="text-center">
+
+                        <?php foreach($checkUserAdmin as $x):  if($x->pravo_id == 1): ?>
+                            <button type="button" class="btn btn-secondary"><a href="delete.user.view.php" style="color:white;">Brisanje korisnika</a></button>             
+
+                        <?php break; endif; ?>
+                        <?php endforeach; ?>
+
+                </div>
+            </div>
+            <div class="col-2">
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-2">
+            </div>
+            <div class="col-8">
+                <div class="text-center">
+
+                        <?php foreach($checkUserAdmin as $x):  if($x->pravo_id == 1): ?>
+                            <button type="button" class="btn btn-secondary"><a href="delete.team.view.php" style="color:white;">Brisanje ekipe</a></button>             
+
+                        <?php break; endif; ?>
+                        <?php endforeach; ?>
+
+                </div>
+            </div>
+            <div class="col-2">
+            </div>
+        </div>
     </div>
 
 <?php   

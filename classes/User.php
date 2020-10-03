@@ -4,6 +4,7 @@
 
         public $userLogged = null;
         public $registerUserStatus = null;
+        public $userDeleteChanged = null;
 
         public function LoginUser($email,$password){
             $sql = "select * from korisnici k where k.email = '{$email}' and k.sifra = '{$password}' ";
@@ -44,6 +45,23 @@
             }else{
                 $this->registerUserStatus = false;
                 //header('Location: login.register.view.php'); //ovo je visak koda
+            }
+        }
+
+        public function deleteUser($korisnikId){
+            //Brisu se podaci iz tri tabele jer u tim tabelama kao foreign key ima korisnik_id
+            $sql = "
+                delete from korisnici_prava where korisnik_id = {$korisnikId};
+                delete from poruke where korisnik_id = {$korisnikId};
+                delete from korisnici where korisnik_id = {$korisnikId}; 
+            ";
+            $query = $this->db->prepare($sql);
+            $provera = $query->execute();
+
+            if($provera){
+                $this->userDeleteChanged = true;
+            }else{
+                $this->userDeleteChanged = false;
             }
         }
     }

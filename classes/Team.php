@@ -7,7 +7,7 @@
         public $teamDeleteChanged = null;
 
         public function insertTeam($nazivEkipe,$mesto,$telefon,$email,$nazivTurnira,$drzava){
-            $sql = "insert into ekipe values(null,'{$nazivEkipe}',{$drzava},'{$mesto}','{$email}','{$telefon}','{$nazivTurnira}',current_timestamp())";
+            $sql = "insert into ekipe values(null,'{$nazivEkipe}',{$drzava},'{$mesto}','{$email}','{$telefon}','{$nazivTurnira}',current_timestamp(),2)";
             $query = $this->db->prepare($sql);
             $provera = $query->execute();
             //$last_id = $this->db->lastInsertId();//ako su podaci insertovani, uzima ID

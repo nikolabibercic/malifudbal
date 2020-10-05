@@ -48,6 +48,11 @@ CREATE TABLE turniri(
 	FOREIGN KEY (status_turnira_id) REFERENCES statusi_turnira(status_turnira_id)
 )engine=myisam;
 
+create table statusi_uplata(
+	status_uplate_id int AUTO_INCREMENT PRIMARY KEY,
+	status_uplate varchar(50) character set utf8 not null
+)engine=myisam;
+
 CREATE TABLE ekipe(
 	ekipa_id int AUTO_INCREMENT PRIMARY KEY,
 	naziv_ekipe varchar(100) character set utf8 not null,
@@ -57,8 +62,10 @@ CREATE TABLE ekipe(
 	telefon varchar(100) character set utf8 null,
 	turnir_id int not null,
 	datum_registracije datetime not null,
+	status_uplate_id int not null,
     FOREIGN KEY (drzava_id) REFERENCES drzave(drzava_id),
-    FOREIGN KEY (turnir_id) REFERENCES turniri(turnir_id)
+    FOREIGN KEY (turnir_id) REFERENCES turniri(turnir_id),
+	FOREIGN KEY (status_uplate_id) REFERENCES statusi_uplata(status_uplate_id)
 )engine=myisam;
 
 CREATE TABLE igraci(
@@ -107,5 +114,8 @@ insert into statusi_poruka values(null,'Neaktivna');
 
 insert into statusi_drzava values(null,'Aktivna');
 insert into statusi_drzava values(null,'Neaktivna');
+
+insert into statusi_uplata values(null,'Uplaćeno');
+insert into statusi_uplata values(null,'Nije uplaćeno');
 
 insert into turniri values(null,'Tasmajdan 2020','2020-11-01 00:00:00',1,'Odlican turnir');

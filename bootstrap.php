@@ -9,6 +9,7 @@
     require 'classes/Post.php';
     require 'classes/Role.php';
     require 'classes/Country.php';
+    require 'classes/Payment.php';
 
     $db = new Connection();
     $query = new QueryBuilder($db->connect());
@@ -18,4 +19,5 @@
     $post = new Post($db->connect());
     $role = new Role($db->connect());
     $country = new Country($db->connect());
+    $payment = new Payment($db->connect());
 ?>

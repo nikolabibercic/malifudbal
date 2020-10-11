@@ -11,7 +11,7 @@
 
 <div class="jumbotron jumbotron-fluid">
     <div class="container text-center">
-            <h1 class="display-4">Logovanje/Registracija</h1>
+            <h1 class="display-4">Logovanje / Registracija</h1>
     </div>
 </div>
 

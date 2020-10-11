@@ -2,21 +2,17 @@
 
 <?php require 'partials/header.php'; ?>
 <?php require 'partials/navbar.php'; ?>
+
+<div class="jumbotron jumbotron-fluid">
+        <div class="container text-center">
+            <h1 class="display-4">Prijava ekipe</h1>
+        </div>
+</div>
+
 <br>
 
 <div class="container">
-    <div class="row">
-        <div class="col-3">
 
-        </div>
-        <div class="col-6">
-            <div class="text-center"><h1>Prijava ekipe</h1></div>    
-        </div>
-        <div class="col-3">
-            
-        </div>
-    </div>
-    <br>
     <div class="row">
         <div class="col-3">
         </div>

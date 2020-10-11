@@ -8,9 +8,18 @@
 
 <?php require 'partials/header.php'; ?>
 <?php require 'partials/navbar.php'; ?>
+
+<div class="jumbotron jumbotron-fluid">
+    <div class="container text-center">
+            <h1 class="display-4">Logovanje/Registracija</h1>
+    </div>
+</div>
+
 <br>
 
 <div class="container">
+
+
     <div class="row">
         <div class="col-6">
             <p>Logovanje:</p>

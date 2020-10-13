@@ -15,14 +15,21 @@ foreach($checkUserAdmin as $x):
     
 <?php  require 'partials/header.php';?>
 <?php require 'partials/navbar.php';?>
+
+<div class="jumbotron jumbotron-fluid">
+        <div class="container text-center">
+            <h1 class="display-4">Kreiraj post</h1>
+        </div>
+</div>
+
 <br>
+
 <div class="container">
     <div class="row">
         <div class="col-3">
         </div>
 
-        <div class="col-6">
-            <h1>Kreiraj post:</h1><br>
+        <div class="col-6 text-center">
             <form action="create.post.php" method="POST">
                 <div class="form-group">
                     <input type="text" name="naslov" placeholder="Naslov posta" class="form-control" required><br>

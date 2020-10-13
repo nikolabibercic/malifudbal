@@ -7,7 +7,18 @@
         public $statusChanged = null;
 
         public function selectPosts(){
+            //ovde selektujem samo aktivne postove
             $sql = "select * from poruke where status_poruke_id = 1 order by datum_poruke desc";
+            $query = $this->db->prepare($sql);
+            $query->execute();
+            $result = $query->fetchAll(PDO::FETCH_OBJ);
+            
+            return $result;
+        }
+
+        public function selectTopThreePosts(){
+            //ovde selektujem samo aktivne postove
+            $sql = "select * from poruke where status_poruke_id = 1 order by datum_poruke desc limit 3";
             $query = $this->db->prepare($sql);
             $query->execute();
             $result = $query->fetchAll(PDO::FETCH_OBJ);

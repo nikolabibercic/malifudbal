@@ -15,14 +15,21 @@ foreach($checkUserAdmin as $x):
     <?php if($x->pravo_id == 1): ?>
         <?php  require 'partials/header.php';?>
         <?php require 'partials/navbar.php';?>
+
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container text-center">
+                <h1 class="display-4">Promena prava korisnika</h1>
+            </div>
+        </div>
+
         <br>
+        
         <div class="container">
             <div class="row">
                 <div class="col-3">
                 </div>
 
                 <div class="col-6">
-                    <h1>Promena prava korisnika:</h1><br>
                     <form action="change.user.role.php" method="POST">
                         <div class="form-group">
                             Lista korisnika koji imaju prava:<br>

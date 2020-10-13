@@ -10,7 +10,7 @@
 
     <!-- Google font -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Chilanka&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap" rel="stylesheet">
 
     <style>
         body{
@@ -18,7 +18,13 @@
         }
 
         .navbar-brand{
-            font-family: 'Chilanka', cursive;
+            font-family: 'Roboto Condensed', sans-serif;
+            font-weight: bold;
+        }
+
+        #navbarTogglerDemo02{
+            font-family: 'Roboto Condensed', sans-serif;
+            font-weight: bold;
         }
     </style>
 

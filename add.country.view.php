@@ -15,14 +15,22 @@ foreach($checkUserAdmin as $x):
     
 <?php  require 'partials/header.php';?>
 <?php require 'partials/navbar.php';?>
+
+<div class="jumbotron jumbotron-fluid">
+        <div class="container text-center">
+            <h1 class="display-4">Dodavanje države</h1>
+        </div>
+</div>
+
 <br>
+
+
 <div class="container">
     <div class="row">
         <div class="col-3">
         </div>
 
         <div class="col-6">
-            <h1>Dodavanje države:</h1><br>
             <form action="add.country.php" method="POST">
                 <div class="form-group">
                     <input type="text" name="drzava" placeholder="Država" class="form-control" required><br>

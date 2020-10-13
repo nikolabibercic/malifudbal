@@ -15,17 +15,24 @@ foreach($checkUserAdmin as $x):
     
 <?php  require 'partials/header.php';?>
 <?php require 'partials/navbar.php';?>
+
+<div class="jumbotron jumbotron-fluid">
+        <div class="container text-center">
+            <h1 class="display-4">Brisanje ekipe</h1>
+        </div>
+</div>
+
 <br>
+
 <div class="container">
     <div class="row">
         <div class="col-3">
         </div>
 
-        <div class="col-6">
-            <h1>Brisanje ekipe:</h1><br>
+        <div class="col-6 text-center">
             <form action="delete.team.php" method="POST">
                 <div class="form-group">
-                    Lista svih ekipa:<br>
+                    Lista svih ekipa:
                     <select name="ekipaId" id="">
                         <?php  $result = $team->selectAllTeams(); foreach($result as $x):  ?>
                             <option value=<?php echo $x->ekipa_id; ?> class="form-control"><?php echo $x->naziv_ekipe.' - '.$x->naziv_turnira; ?></option>

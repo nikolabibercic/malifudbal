@@ -15,14 +15,22 @@ foreach($checkUserAdmin as $x):
     
 <?php  require 'partials/header.php';?>
 <?php require 'partials/navbar.php';?>
+
+<div class="jumbotron jumbotron-fluid">
+        <div class="container text-center">
+            <h1 class="display-4">Dodavanje prava korisniku</h1>
+        </div>
+</div>
+
 <br>
+
+
 <div class="container">
     <div class="row">
         <div class="col-3">
         </div>
 
         <div class="col-6">
-            <h1>Dodavanje prava korisniku:</h1><br>
             <form action="add.user.role.php" method="POST">
                 <div class="form-group">
                     Lista svih korisnika:<br>
@@ -57,7 +65,7 @@ foreach($checkUserAdmin as $x):
 
 <?php   
             require 'partials/footer.php';
-            
+
             $check = true; break; 
 
             else: 

@@ -15,6 +15,13 @@ foreach($checkUserAdmin as $x):
     
 <?php  require 'partials/header.php';?>
 <?php require 'partials/navbar.php';?>
+
+<div class="jumbotron jumbotron-fluid">
+        <div class="container text-center">
+            <h1 class="display-4">Kreiraj turnir</h1>
+        </div>
+</div>
+
 <br>
 <div class="container">
     <div class="row">
@@ -22,7 +29,6 @@ foreach($checkUserAdmin as $x):
         </div>
 
         <div class="col-6">
-            <h1>Kreiraj turnir:</h1><br>
             <form action="create.tournament.php" method="POST">
                 <div class="form-group">
                     <input type="text" name="naziv" placeholder="Naziv turnira" class="form-control" required><br>

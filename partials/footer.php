@@ -25,9 +25,9 @@
         <div class="col-12" >
             <p><b>Društvene mreže:</b></p>
             <ul class="nav float-left">
-                <li class="nav-item"><a href="" class="nav-link"><img src="images/facebookIcon.png" class="img-fluid" alt="Responsive image" width="50px" height="50px"></a></li>
-                <li class="nav-item"><a href="" class="nav-link"><img src="images/youTubeIcon.png" class="img-fluid" alt="Responsive image" width="50px" height="50px"></a></li>
-                <li class="nav-item"><a href="" class="nav-link"><img src="images/instagramIcon.png" class="img-fluid" alt="Responsive image" width="50px" height="50px"></a></li>
+                <li class="nav-item"><a href="" class="nav-link"><img src="images/facebookIcon.png" class="img-fluid" alt="Responsive image" width="40px" height="40px"></a></li>
+                <li class="nav-item"><a href="" class="nav-link"><img src="images/youTubeIcon.png" class="img-fluid" alt="Responsive image" width="40px" height="40px"></a></li>
+                <li class="nav-item"><a href="" class="nav-link"><img src="images/instagramIcon.png" class="img-fluid" alt="Responsive image" width="40px" height="40px"></a></li>
             </ul>   
 
         </div>

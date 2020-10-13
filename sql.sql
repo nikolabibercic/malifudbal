@@ -72,7 +72,7 @@ CREATE TABLE igraci(
 	igrac_id int AUTO_INCREMENT PRIMARY KEY,
 	ime varchar(100) character set utf8 not null,
     prezime varchar(100) character set utf8 not null,
-    datum_rodjenja datetime not null,
+    datum_rodjenja datetime null,
     ekipa_id int not null,
     FOREIGN KEY (ekipa_id) REFERENCES ekipe(ekipa_id)
 )engine=myisam;

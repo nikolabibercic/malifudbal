@@ -17,6 +17,22 @@
             }else{
                 $this->insertTeamStatus = false;
             }
+
+            //return $last_id;
+        }
+
+        public function checkTeamId($nazivEkipe, $nazivTurnira){
+            $sql = "select e.turnir_id, t.naziv_turnira, e.ekipa_id
+                    from ekipe e
+                    inner join turniri t on t.turnir_id = e.turnir_id 
+                    where e.naziv_ekipe = trim('{$nazivEkipe}') and t.turnir_id = {$nazivTurnira}
+                    "; // $nazivTurnira je ID turnira
+            $query = $this->db->prepare($sql);
+            $query->execute();
+            
+            $checkTeamId = $query->fetch(PDO::FETCH_OBJ);
+
+            return $checkTeamId;
         }
 
         public function checkDuplicateTeam($nazivEkipe, $nazivTurnira){

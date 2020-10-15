@@ -18,7 +18,7 @@
         </div>
 
         <div class="col-6">
-            <form action="register.team.php" method="POST">
+            <form action="register.players.view.php" method="POST">
                 <div class="form-group">
                     <input type="text" name="nazivEkipe" placeholder="Naziv ekipe *" class="form-control" required><br>
                     Država:<br>
@@ -31,13 +31,13 @@
                     <input type="text" name="telefon" placeholder="Kontakt telefon *" class="form-control" required><br>
                     <input type="email" name="email" placeholder="Kontakt email" class="form-control"><br>
                     Turnir:<br>
-                    <select name="nazivTurnira" id="">
+                    <select name="turnirId" id="">
                         <?php  $result = $tournament->selectActiveTournaments(); foreach($result as $x):  ?>
                             <option value=<?php echo $x->turnir_id; ?> class="form-control"><?php echo $x->naziv_turnira; ?></option>
                         <?php endforeach; ?>
                     </select><br><br>
                 </div>
-                <button type="submit" name="prijaviEkipu">Prijavi ekipu</button>
+                <button type="submit" name="prijaviEkipu">Dalje</button>
             </form>
             <br>
             <!-- Ako je status inserta ekipe TRUE bice poslato preko GET metode i kreirace se poruka za uspesnu registraciju -->

@@ -2,50 +2,28 @@
 
     require 'bootstrap.php';
 
+    $mesto = $_POST['mesto'];
+    $telefon = $_POST['telefon'];
+    $email = $_POST['email'];
+    $drzava = $_POST['drzava'];
     $nazivEkipe = $_POST['nazivEkipe'];
     $turnirId = $_POST['turnirId'];
 
-    $igrac1Ime = $_POST['igrac1Ime'];
-    $igrac1Prezime = $_POST['igrac1Prezime'];
+    $team->insertTeam($nazivEkipe,$mesto,$telefon,$email,$turnirId,$drzava);
 
-    $igrac2Ime = $_POST['igrac2Ime'];
-    $igrac2Prezime = $_POST['igrac2Prezime'];
+    $team1 = $team->checkTeamId($_POST['nazivEkipe'],$_POST['turnirId']);
+    $ekipaId = $team1->ekipa_id;
 
-    $igrac3Ime = $_POST['igrac3Ime'];
-    $igrac3Prezime = $_POST['igrac3Prezime'];
+    var_dump($_POST['igrac10Ime']);
 
-    $igrac4Ime = $_POST['igrac4Ime'];
-    $igrac4Prezime = $_POST['igrac4Prezime'];
+    for($i=1;$i<=10;$i++){
+        if( strlen($_POST['igrac'.$i.'Ime'])>0 and strlen($_POST['igrac'.$i.'Prezime'])>0 ){
+            $player->insertPlayer($_POST['igrac'.$i.'Ime'],$_POST['igrac'.$i.'Prezime'],$ekipaId);
+        }else{
+            continue;
+        }
+    }
 
-    $igrac5Ime = $_POST['igrac5Ime'];
-    $igrac5Prezime = $_POST['igrac5Prezime'];
-
-    $igrac6Ime = $_POST['igrac6Ime'];
-    $igrac6Prezime = $_POST['igrac6Prezime'];
-
-    $igrac7Ime = $_POST['igrac7Ime'];
-    $igrac7Prezime = $_POST['igrac7Prezime'];
-
-    $igrac8Ime = $_POST['igrac8Ime'];
-    $igrac8Prezime = $_POST['igrac8Prezime'];
-
-    $igrac9Ime = $_POST['igrac9Ime'];
-    $igrac9Prezime = $_POST['igrac9Prezime'];
-
-    $igrac10Ime = $_POST['igrac10Ime'];
-    $igrac10Prezime = $_POST['igrac10Prezime'];
-
-   //echo $_POST['nazivEkipe'];
-   //echo $_POST['nazivTurnira'];
-
-   $team = $team->checkTeamId($_POST['nazivEkipe'],$_POST['turnirId']);
-    $ekipaId = $team->ekipa_id;
-
-        if(isset($_POST['igrac1Ime']) and isset($_POST['igrac1Prezime'])){
-            $player->insertPlayer($igrac1Ime,$igrac1Prezime,$ekipaId);
-        } 
-
-        //header("Location: register.team.view.php?insertTeamStatus={$team->insertTeamStatus}");
-
+    header("Location: register.team.view.php?insertTeamStatus=true");
 
 ?>

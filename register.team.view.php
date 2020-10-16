@@ -37,7 +37,7 @@
                         <?php endforeach; ?>
                     </select><br><br>
                 </div>
-                <button type="submit" name="prijaviEkipu">Dalje</button>
+                <button type="submit" name="dalje">Dalje</button>
             </form>
             <br>
             <!-- Ako je status inserta ekipe TRUE bice poslato preko GET metode i kreirace se poruka za uspesnu registraciju -->

@@ -9,14 +9,16 @@
     $turnirId = $_POST['turnirId'];
     $drzava = $_POST['drzava'];
 
+    echo $nazivEkipe;
     //Pozivam funckiju koja provera da li naziv ekipe vec postoji za izabrani turnir
     $proveraDuplikata = $team->checkDuplicateTeam($nazivEkipe, $turnirId);
 
     if($proveraDuplikata){
         header("Location: register.team.view.php?duplicateTeamStatus={$team->duplicateTeamStatus}");
-    }else{
-        $team->insertTeam($nazivEkipe,$mesto,$telefon,$email,$turnirId,$drzava);
     }
+    /*else{
+        $team->insertTeam($nazivEkipe,$mesto,$telefon,$email,$turnirId,$drzava);
+    }*/
 
 ?>
 
@@ -145,8 +147,15 @@
                         </div>
                     </div>
                 <input type="hidden" class="form-control" name="turnirId" value=<?php echo $_POST['turnirId']; ?> >
+                
+                <input type="hidden" class="form-control" name="nazivEkipe" value='<?php echo $_POST['nazivEkipe']; ?>' >
+                <input type="hidden" class="form-control" name="mesto" value='<?php echo $_POST['mesto']; ?>' >
+                <input type="hidden" class="form-control" name="telefon" value='<?php echo $_POST['telefon']; ?>' >
+                <input type="hidden" class="form-control" name="email" value=<?php echo $_POST['email']; ?> >
+                <input type="hidden" class="form-control" name="drzava" value=<?php echo $_POST['drzava']; ?> >
+
                 </div>
-                <button type="submit" name="prijaviIgrace">Prijavi ekipu!</button>
+                <button type="submit" name="prijaviEkipu">Prijavi ekipu!</button>
             </form>
         </div>
 

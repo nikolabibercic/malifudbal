@@ -21,11 +21,11 @@
             //return $last_id;
         }
 
-        public function checkTeamId($nazivEkipe, $nazivTurnira){
+        public function checkTeamId($nazivEkipe, $turnirId){
             $sql = "select e.turnir_id, t.naziv_turnira, e.ekipa_id
                     from ekipe e
                     inner join turniri t on t.turnir_id = e.turnir_id 
-                    where e.naziv_ekipe = trim('{$nazivEkipe}') and t.turnir_id = {$nazivTurnira}
+                    where e.naziv_ekipe = trim('{$nazivEkipe}') and t.turnir_id = {$turnirId}
                     "; // $nazivTurnira je ID turnira
             $query = $this->db->prepare($sql);
             $query->execute();

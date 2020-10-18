@@ -9,7 +9,7 @@
     $turnirId = $_POST['turnirId'];
     $drzava = $_POST['drzava'];
 
-    echo $nazivEkipe;
+    //echo $nazivEkipe;
     //Pozivam funckiju koja provera da li naziv ekipe vec postoji za izabrani turnir
     $proveraDuplikata = $team->checkDuplicateTeam($nazivEkipe, $turnirId);
 
@@ -57,95 +57,31 @@
 
                     <input type="hidden" value=<?php echo $_POST['nazivEkipe']; ?> name="nazivEkipe" placeholder="Naziv ekipe" class="form-control"><br>
                     
-                    <div class="form-row">
-                        <div class="col">
-                            <input type="text" class="form-control" name="igrac1Ime" placeholder="Igrač 1 - ime" required>
-                        </div>
-                        <div class="col">
-                            <input type="text" class="form-control" name="igrac1Prezime" placeholder="Igrač 1 - prezime" required>
-                        </div>
-                    </div>
-                    <br>
-                    <div class="form-row">
-                        <div class="col">
-                            <input type="text" class="form-control" name="igrac2Ime" placeholder="Igrač 2 - ime" required>
-                        </div>
-                        <div class="col">
-                            <input type="text" class="form-control" name="igrac2Prezime" placeholder="Igrač 2 - prezime" required>
-                        </div>
-                    </div>
-                    <br>
-                    <div class="form-row">
-                        <div class="col">
-                            <input type="text" class="form-control" name="igrac3Ime" placeholder="Igrač 3 - ime" required>
-                        </div>
-                        <div class="col">
-                            <input type="text" class="form-control" name="igrac3Prezime" placeholder="Igrač 3 - prezime" required>
-                        </div>
-                    </div>
-                    <br>
-                    <div class="form-row">
-                        <div class="col">
-                            <input type="text" class="form-control" name="igrac4Ime" placeholder="Igrač 4 - ime" required>
-                        </div>
-                        <div class="col">
-                            <input type="text" class="form-control" name="igrac4Prezime" placeholder="Igrač 4 - prezime" required>
-                        </div>
-                    </div>
-                    <br>
-                    <div class="form-row">
-                        <div class="col">
-                            <input type="text" class="form-control" name="igrac5Ime" placeholder="Igrač 5 - ime" required>
-                        </div>
-                        <div class="col">
-                            <input type="text" class="form-control" name="igrac5Prezime" placeholder="Igrač 5 - prezime" required>
-                        </div>
-                    </div>
-                    <br>
-                    <div class="form-row">
-                        <div class="col">
-                            <input type="text" class="form-control" name="igrac6Ime" placeholder="Igrač 6 - ime" required>
-                        </div>
-                        <div class="col">
-                            <input type="text" class="form-control" name="igrac6Prezime" placeholder="Igrač 6 - prezime" required>
-                        </div>
-                    </div>
-                    <br>
-                    <div class="form-row">
-                        <div class="col">
-                            <input type="text" class="form-control" name="igrac7Ime" placeholder="Igrač 7 - ime" >
-                        </div>
-                        <div class="col">
-                            <input type="text" class="form-control" name="igrac7Prezime" placeholder="Igrač 7 - prezime" >
-                        </div>
-                    </div>
-                    <br>
-                    <div class="form-row">
-                        <div class="col">
-                            <input type="text" class="form-control" name="igrac8Ime" placeholder="Igrač 8 - ime" >
-                        </div>
-                        <div class="col">
-                            <input type="text" class="form-control" name="igrac8Prezime" placeholder="Igrač 8 - prezime" >
-                        </div>
-                    </div>
-                    <br>
-                    <div class="form-row">
-                        <div class="col">
-                            <input type="text" class="form-control" name="igrac9Ime" placeholder="Igrač 9 - ime" >
-                        </div>
-                        <div class="col">
-                            <input type="text" class="form-control" name="igrac9Prezime" placeholder="Igrač 9 - prezime" >
-                        </div>
-                    </div>
-                    <br>
-                    <div class="form-row">
-                        <div class="col">
-                            <input type="text" class="form-control" name="igrac10Ime" placeholder="Igrač 10 - ime" >
-                        </div>
-                        <div class="col">
-                            <input type="text" class="form-control" name="igrac10Prezime" placeholder="Igrač 10 - prezime" >
-                        </div>
-                    </div>
+                    <?php for($i=1;$i<=10;$i++): //pravi 10 polja za unos imena i prezimena ?>
+                        <?php if($i<=6): //prvih sest polja je obavezno ?>
+                            <div class="form-row">
+                                <div class="col">
+                                    <input type="text" class="form-control" name='<?php echo 'igrac'.$i.'Ime' ?>' placeholder='<?php echo 'Igrač '.$i.' - ime' ?>' required>
+                                </div>
+                                <div class="col">
+                                    <input type="text" class="form-control" name='<?php echo 'igrac'.$i.'Prezime' ?>' placeholder='<?php echo 'Igrač '.$i.' - prezime' ?>' required>
+                                </div>
+                            </div>
+                            <br>
+                        <?php endif; ?>
+                        <?php if($i>6): //posle sestog polja nije obavezan unos imena i prezimena ?>
+                            <div class="form-row">
+                                <div class="col">
+                                    <input type="text" class="form-control" name='<?php echo 'igrac'.$i.'Ime' ?>' placeholder='<?php echo 'Igrač '.$i.' - ime' ?>' >
+                                </div>
+                                <div class="col">
+                                    <input type="text" class="form-control" name='<?php echo 'igrac'.$i.'Prezime' ?>' placeholder='<?php echo 'Igrač '.$i.' - prezime' ?>' >
+                                </div>
+                            </div>
+                            <br>
+                        <?php endif; ?>
+                    <?php endfor; ?>
+
                 <input type="hidden" class="form-control" name="turnirId" value=<?php echo $_POST['turnirId']; ?> >
                 
                 <input type="hidden" class="form-control" name="nazivEkipe" value='<?php echo $_POST['nazivEkipe']; ?>' >

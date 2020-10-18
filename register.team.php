@@ -9,8 +9,16 @@
     $nazivEkipe = $_POST['nazivEkipe'];
     $turnirId = $_POST['turnirId'];
 
+    $proveraDuplikata = $team->checkDuplicateTeam($nazivEkipe, $turnirId);
+
+    //Pozivam funckiju koja provera da li naziv ekipe vec postoji za izabrani turnir
+    if($proveraDuplikata){
+        header("Location: register.team.view.php?duplicateTeamStatus={$team->duplicateTeamStatus}");
+    }
+
     $team->insertTeam($nazivEkipe,$mesto,$telefon,$email,$turnirId,$drzava);
 
+    //Pozivam funckiju koja vraca ID ekipa koja je importovana
     $team1 = $team->checkTeamId($_POST['nazivEkipe'],$_POST['turnirId']);
     $ekipaId = $team1->ekipa_id;
 

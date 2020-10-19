@@ -7,7 +7,7 @@
         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item"><a href="post.view.php" class="nav-link" style="color:white;">Vesti i rezultati</a></li>
-                <li class="nav-item"><a href="contact.view.php" class="nav-link" style="color:white;">Kontakt</a></li>
+                <li class="nav-item"><a href="pictures.view.php" class="nav-link" style="color:white;">Fotografije</a></li>
                 <?php if(isset($_SESSION['korisnik'])): ?>        
                     <li class="nav-item">
                         <a href="admin.view.php" class="nav-link" style="color:white;">

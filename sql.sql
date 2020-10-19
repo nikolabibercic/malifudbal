@@ -93,6 +93,11 @@ CREATE TABLE poruke(
 	FOREIGN KEY (status_poruke_id) REFERENCES statusi_poruka(status_poruke_id)
 )engine=myisam;
 
+CREATE TABLE fotografije(
+	fotografija_id int AUTO_INCREMENT PRIMARY KEY,
+	naziv_fotografije varchar(250) character set utf8 not null
+)engine=myisam;
+
 insert into drzave values(null,'Srbija',1);
 insert into drzave values(null,'Bosna i Hercegovina',1);
 insert into drzave values(null,'Crna Gora',1);

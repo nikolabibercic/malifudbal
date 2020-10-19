@@ -144,7 +144,25 @@ foreach($checkUserAdmin as $x):
                 <div class="text-center">
 
                         <?php foreach($checkUserAdmin as $x):  if($x->pravo_id == 1): ?>
-                            <button type="button" class="btn btn-secondary"><a href="change.team.payment.view.php" style="color:white;">Evidentiraj uplatu</a></button>
+                            <button type="button" class="btn btn-secondary"><a href="change.team.payment.view.php" style="color:white;">Evidentiraj uplatu</a></button><br><br>
+
+                        <?php break; endif; ?>
+                        <?php endforeach; ?>
+
+                </div>
+            </div>
+            <div class="col-2">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-2">
+            </div>
+            <div class="col-8">
+                <div class="text-center">
+
+                        <?php foreach($checkUserAdmin as $x):  if($x->pravo_id == 1 or $x->pravo_id == 2): ?>
+                            <button type="button" class="btn btn-secondary"><a href="upload.picture.view.php" style="color:white;">Postavi fotografiju</a></button>
 
                         <?php break; endif; ?>
                         <?php endforeach; ?>

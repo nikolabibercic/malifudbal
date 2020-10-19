@@ -11,6 +11,7 @@
     require 'classes/Country.php';
     require 'classes/Payment.php';
     require 'classes/Player.php';
+    require 'classes/Picture.php';
 
     $db = new Connection();
     $query = new QueryBuilder($db->connect());
@@ -22,4 +23,5 @@
     $country = new Country($db->connect());
     $payment = new Payment($db->connect());
     $player = new Player($db->connect());
+    $picture = new Picture($db->connect());
 ?>

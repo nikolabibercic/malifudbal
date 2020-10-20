@@ -30,7 +30,7 @@
             
                 // Check if $uploadOk is set to 0 by an error
                 if ($uploadOk == 0) {
-                // echo "Sorry, your file was not uploaded.";
+                    echo "Sorry, your file was not uploaded.";
                 // if everything is ok, try to upload file
                 } else {
                 if (move_uploaded_file($picture["tmp_name"], $target_file)) {
@@ -47,7 +47,7 @@
 
             $path = $this->uploadPicture($picture);
 
-            $sql = "insert into fotografije values(null,'{$path}' )";
+            $sql = "insert into fotografije values(null,'{$path}',current_timestamp(),1 )";
             $query = $this->db->prepare($sql);
             $provera = $query->execute();
             //$last_id = $this->db->lastInsertId();//ako su podaci insertovani, uzima ID
@@ -57,6 +57,16 @@
             }else{
                 $this->uploadPictureStatus = false;
             }
+        }
+
+        public function selectPictures(){
+            //ovde selektujem samo aktivne slike
+            $sql = "select * from fotografije where status_fotografije_id = 1 order by datum_inserta desc";
+            $query = $this->db->prepare($sql);
+            $query->execute();
+            $result = $query->fetchAll(PDO::FETCH_OBJ);
+            
+            return $result;
         }
     }
 

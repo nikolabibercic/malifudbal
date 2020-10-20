@@ -93,9 +93,17 @@ CREATE TABLE poruke(
 	FOREIGN KEY (status_poruke_id) REFERENCES statusi_poruka(status_poruke_id)
 )engine=myisam;
 
+create table statusi_fotografija(
+	status_fotografije_id int AUTO_INCREMENT PRIMARY KEY,
+	status_fotografije varchar(50) character set utf8 not null
+)engine=myisam;
+
 CREATE TABLE fotografije(
 	fotografija_id int AUTO_INCREMENT PRIMARY KEY,
-	naziv_fotografije varchar(250) character set utf8 not null
+	naziv_fotografije varchar(250) character set utf8 not null,
+	datum_inserta datetime not null,
+	status_fotografije_id int not null,
+	FOREIGN KEY (status_fotografije_id) REFERENCES statusi_fotografija(status_fotografije_id)
 )engine=myisam;
 
 insert into drzave values(null,'Srbija',1);
@@ -111,16 +119,19 @@ insert into korisnici values(null,'Nikola Bibercic','nikolabibercic@gmail.com','
 insert into korisnici values(null,'Proba','proba@gmail.com','123');
 insert into korisnici_prava values(null,1,1);
 
-insert into statusi_turnira values(null,'Aktivan');
-insert into statusi_turnira values(null,'Neaktivan');
+insert into statusi_turnira values(null,'Aktivno');
+insert into statusi_turnira values(null,'Neaktivno');
 
-insert into statusi_poruka values(null,'Aktivna');
-insert into statusi_poruka values(null,'Neaktivna');
+insert into statusi_poruka values(null,'Aktivno');
+insert into statusi_poruka values(null,'Neaktivno');
 
-insert into statusi_drzava values(null,'Aktivna');
-insert into statusi_drzava values(null,'Neaktivna');
+insert into statusi_drzava values(null,'Aktivno');
+insert into statusi_drzava values(null,'Neaktivno');
 
 insert into statusi_uplata values(null,'Uplaćeno');
 insert into statusi_uplata values(null,'Nije uplaćeno');
+
+insert into statusi_fotografija values(null,'Aktivno');
+insert into statusi_fotografija values(null,'Neaktivno');
 
 insert into turniri values(null,'Tasmajdan 2020','2020-11-01 00:00:00',1,'Odlican turnir');

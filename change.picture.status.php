@@ -12,12 +12,12 @@ $check = false;
 foreach($checkUserAdmin as $x):
     if($x->pravo_id == 1 or $x->pravo_id == 2): 
 
-        $pictureUpload = $_FILES["pictureUpload"];
+$fotografijaId = $_POST['fotografijaId'];
+$statusFotografijeId = $_POST['statusFotografijeId'];
 
-        if($_FILES["pictureUpload"]['size'] > 0){
-            $picture->insertPicture($pictureUpload);
-        }
-        header("Location: upload.picture.view.php?uploadPictureStatus={$picture->uploadPictureStatus}");
+$picture->updatePictureStatus($fotografijaId,$statusFotografijeId);
+
+header("Location: change.picture.status.view.php?statusChanged={$picture->statusChanged}");
 
 $check = true; break; 
 
@@ -33,4 +33,3 @@ if(!$check){
     header('Location: index.php'); 
 }
 ?>
-    

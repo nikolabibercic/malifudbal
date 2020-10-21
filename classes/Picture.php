@@ -3,6 +3,7 @@
     class Picture extends QueryBuilder{
 
         public $uploadPictureStatus = null;
+        public $statusChanged = null;
 
         public function uploadPicture($picture){
             $target_dir = "images/upload/";
@@ -67,6 +68,42 @@
             $result = $query->fetchAll(PDO::FETCH_OBJ);
             
             return $result;
+        }
+
+        public function selectAllPictures(){
+            $sql = "select * 
+                    from fotografije f
+                    inner join statusi_fotografija sf on sf.status_fotografije_id = f.status_fotografije_id
+                    order by sf.status_fotografije, f.datum_inserta desc ";
+            $query = $this->db->prepare($sql);
+            $query->execute();
+            $result = $query->fetchAll(PDO::FETCH_OBJ);
+            
+            return $result;
+        }
+
+        public function selectPictureStatuses(){
+            $sql = "select * 
+                    from statusi_fotografija
+                     ";
+            $query = $this->db->prepare($sql);
+            $query->execute();
+            $result = $query->fetchAll(PDO::FETCH_OBJ);
+            
+            return $result;
+        }
+
+        public function updatePictureStatus($fotografijaId,$statusFotografijeId){
+
+            $sql = "update fotografije set status_fotografije_id = {$statusFotografijeId} where fotografija_id = {$fotografijaId} ";
+            $query = $this->db->prepare($sql);
+            $provera = $query->execute();
+
+            if($provera){
+                $this->statusChanged = true;
+            }else{
+                $this->statusChanged = false;
+            }
         }
     }
 

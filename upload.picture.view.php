@@ -38,12 +38,12 @@ foreach($checkUserAdmin as $x):
             </form><br>
 
             <!-- srediti ova dva upita -->
-            <?php if(isset($_GET['postInserted']) && $_GET['postInserted']==true): ?>
-                <div class="alert alert-success" role="alert">Uspešno si napravio post</div>
+            <?php if(isset($_GET['uploadPictureStatus']) && $_GET['uploadPictureStatus']==true): ?>
+                <div class="alert alert-success" role="alert">Uspešno si postavio fotografiju</div>
             <?php endif; ?>
 
-            <?php if(isset($_GET['postInserted']) && $_GET['postInserted']==false): ?>
-                <div class="alert alert-danger" role="alert">Kreiranje posta nije uspelo!</div>
+            <?php if(isset($_GET['uploadPictureStatus']) && $_GET['uploadPictureStatus']==false): ?>
+                <div class="alert alert-danger" role="alert">Upload fotografije nije uspeo!</div>
             <?php endif; ?>
         </div>
 

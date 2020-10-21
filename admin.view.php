@@ -163,7 +163,7 @@ foreach($checkUserAdmin as $x):
 
                         <?php foreach($checkUserAdmin as $x):  if($x->pravo_id == 1 or $x->pravo_id == 2): ?>
                             <button type="button" class="btn btn-secondary"><a href="upload.picture.view.php" style="color:white;">Postavi fotografiju</a></button>
-
+                            <button type="button" class="btn btn-secondary"><a href="change.picture.status.view.php" style="color:white;">Status fotografije</a></button>
                         <?php break; endif; ?>
                         <?php endforeach; ?>
 

@@ -7,6 +7,8 @@
 
     require 'partials/register.team.button.php';
 
+    require 'partials/registered.teams.list.view.php';
+
     require 'partials/footer.php';
 
 ?>

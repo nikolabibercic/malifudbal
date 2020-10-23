@@ -69,9 +69,23 @@
             return $result;
         }
 
+        public function selectAllTeamsRegistrationPaid(){
+            $sql = "select e.ekipa_id, e.naziv_ekipe as Ekipa, t.naziv_turnira as Turnir, t.datum_pocetka, su.status_uplate as Kotizacija
+                    from ekipe e
+                    inner join turniri t on t.turnir_id = e.turnir_id
+                    inner join statusi_uplata su on su.status_uplate_id = e.status_uplate_id
+                    where e.status_uplate_id = 1 and t.status_turnira_id = 1
+                    order by t.datum_pocetka desc, e.naziv_ekipe asc
+                     ";
+            $query = $this->db->prepare($sql);
+            $query->execute();
+            $result = $query->fetchAll(PDO::FETCH_OBJ);
+            
+            return $result;
+        }
+
         public function deleteTeam($ekipaId){
             //kada se brise ekipa brisu se i svi igraci te ekipe. 
-            //Na sajtu jos nije implementirana stranica za igrace, postoji samo tabela u bazi
             $sql = "
                 delete from igraci where ekipa_id = {$ekipaId};
                 delete from ekipe where ekipa_id = {$ekipaId};

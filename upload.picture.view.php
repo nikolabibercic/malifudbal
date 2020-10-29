@@ -34,7 +34,7 @@ foreach($checkUserAdmin as $x):
                 <div class="form-group">
                     <input type="file" name="pictureUpload" placeholder="Postavi fotografiju" class="form-control" ><br>
                 </div>
-                <button type="submit" name="pictureUpload">Postavi fotografiju</button>
+                <button type="submit" id="pictureUpload" name="pictureUpload">Postavi fotografiju</button>
             </form><br>
 
             <!-- srediti ova dva upita -->
@@ -68,3 +68,15 @@ foreach($checkUserAdmin as $x):
                 header('Location: index.php'); 
             }
         ?>
+
+<script>
+    var pictureUpload = document.getElementById('pictureUpload');
+
+    addEventListener('keydown',enter);
+
+    function enter(e){
+        if(e.which == 13){
+            pictureUpload.click();
+        };
+    }
+</script>

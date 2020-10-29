@@ -36,7 +36,7 @@ foreach($checkUserAdmin as $x):
                     Lista ekipa i statusi uplata:<br>
                     <select name="ekipaId" id="">
                         <?php  $result = $payment->selectTeamPaymentStatus(); foreach($result as $x):  ?>
-                            <option value=<?php echo $x->ekipa_id; ?> class="form-control"><?php echo $x->naziv_turnira.' - '.$x->naziv_ekipe.' - '.$x->status_uplate; ?></option>
+                            <option value=<?php echo $x->ekipa_id; ?> class="form-control"><?php echo $x->naziv_turnira.' - '.$x->status_uplate.' - '.$x->naziv_ekipe; ?></option>
                         <?php endforeach; ?>
                     </select><br><br>
 
@@ -47,7 +47,7 @@ foreach($checkUserAdmin as $x):
                         <?php endforeach; ?>
                     </select><br><br>
                 </div>
-                <button type="submit" name="promeniStatusUplate">Promeni status uplate</button>
+                <button type="submit" id="promeniStatusUplate" name="promeniStatusUplate">Promeni status uplate</button>
             </form><br>
             <?php if(isset($_GET['paymentStatusChanged']) && $_GET['paymentStatusChanged']==true): ?>
                 <div class="alert alert-success" role="alert">Uspešno si promenio status uplate</div>
@@ -78,4 +78,16 @@ foreach($checkUserAdmin as $x):
             if(!$check){
                 header('Location: index.php'); 
             }
-        ?>
+?>
+
+<script>
+    var pictureUpload = document.getElementById('promeniStatusUplate');
+
+    addEventListener('keydown',enter);
+
+    function enter(e){
+        if(e.which == 13){
+            promeniStatusUplate.click();
+        };
+    }
+</script>

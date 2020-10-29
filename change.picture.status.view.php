@@ -47,7 +47,7 @@ foreach($checkUserAdmin as $x):
                         <?php endforeach; ?>
                     </select><br><br>
                 </div>
-                <button type="submit" name="promeniStatusFotografije">Promeni status</button>
+                <button type="submit" id="promeniStatusFotografije" name="promeniStatusFotografije">Promeni status</button>
             </form><br>
             <?php if(isset($_GET['statusChanged']) && $_GET['statusChanged']==true): ?>
                 <div class="alert alert-success" role="alert">Uspešno si promenio status</div>
@@ -78,4 +78,16 @@ foreach($checkUserAdmin as $x):
             if(!$check){
                 header('Location: index.php'); 
             }
-        ?>
+?>
+
+<script>
+    var pictureUpload = document.getElementById('promeniStatusFotografije');
+
+    addEventListener('keydown',enter);
+
+    function enter(e){
+        if(e.which == 13){
+            promeniStatusFotografije.click();
+        };
+    }
+</script>
